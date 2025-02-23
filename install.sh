@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cp -f .config ${HOME}
-cp -f Sunset.png ${HOME}/Pictures/
+cp -f -r .config ${HOME}
+cp -f -r Sunset.png ${HOME}/Pictures/
 
 echo shoulda worked
