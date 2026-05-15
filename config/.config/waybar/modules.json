@@ -1,0 +1,213 @@
+{
+    "custom/arch": {
+        "format": "󰣇",
+        "tooltip": true,
+        "tooltip-format": "btw"
+    },
+
+    //ML4W
+
+    // Cliphist
+    "custom/cliphist": {
+        "format": "",
+        "on-click": "sleep 0.1 && ~/.config/ml4w/scripts/ml4w-cliphist",
+        "on-click-right": "sleep 0.1 && ~/.config/ml4w/scripts/ml4w-cliphist d",
+        "on-click-middle": "sleep 0.1 && ~/.config/ml4w/scripts/ml4w-cliphist w",
+        "tooltip": false
+    },
+
+    // Hypridle inhibitor
+    "custom/hypridle": {
+        "format": "",
+        "return-type": "json",
+        "escape": true,
+        "exec-on-event": true,
+        "interval": 60,
+        "exec": "~/.config/hypr/scripts/hypridle.sh status",
+        "on-click": "~/.config/hypr/scripts/hypridle.sh toggle",
+        "on-click-right": "hyprlock"
+    },
+
+    // Updates Count
+    "custom/updates": {
+        "format": " {}",
+        "tooltip-format": "{}",
+        "escape": true,
+        "return-type": "json",
+        "exec": "~/.config/ml4w/scripts/ml4w-check-system-updates",
+        "restart-interval": 60,
+        "on-click": "~/.config/ml4w/settings/installupdates.sh",
+        "tooltip": false
+    },
+
+    // Theme Starter Label
+    "custom/starter": {
+        "format": "THEME STARTER",
+        "tooltip": false
+    },
+
+    // Wallpaper
+    "custom/wallpaper": {
+        "format": "",
+        "on-click": "waypaper",
+        "on-click-right": "~/.config/hypr/scripts/wallpaper-effects.sh",
+        "tooltip": false
+    },
+
+    // Waybar Themes
+    "custom/waybarthemes": {
+        "format": "",
+        "on-click": "~/.config/waybar/themeswitcher.sh",
+        "tooltip": false
+    },
+
+    // Settings
+    "custom/settings": {
+        "format": "",
+        "on-click": "flatpak run com.ml4w.settings",
+        "tooltip": false
+    },
+
+    // Keybindings
+    "custom/keybindings": {
+        "format": "",
+        "on-click": "~/.config/hypr/scripts/keybindings.sh",
+        "tooltip": false
+    },
+
+    // Filemanager Launcher
+    "custom/filemanager": {
+        "format": "",
+        "on-click": "nautilus",
+        "tooltip": false
+    },
+
+    // Browser Launcher
+    "custom/browser": {
+        "format": "",
+        "on-click": "~/.config/ml4w/settings/browser.sh",
+        "tooltip": false
+    },
+
+    // ML4W Welcome App
+    "custom/ml4w-welcome": {
+        "on-click": "qs ipc call sidebar toggle",
+        "on-click-right": "qs ipc call welcome toggle",
+        "format": " ",
+        "tooltip-format": "Open Sidebar"
+    },
+
+    // ChatGPT Launcher
+    "custom/chatgpt": {
+        "format": "",
+        "on-click": "chromium --app=https://chat.openai.com",
+        "tooltip": false
+    },
+
+    // Rofi Application Launcher
+    "custom/appmenu": {
+        "format": "Apps",
+        "on-click": "rofi -show drun -replace",
+        "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
+        "tooltip": false
+    },
+
+    // Power Menu
+    "custom/exit": {
+        "format": " ",
+        "on-click": "qs ipc call power toggle",
+        "tooltip": false
+    },
+
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}",
+        "format-icons": {
+            "urgent": "",
+            "active": "",
+            "default": ""
+        }
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "{icon} {volume}%  {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "GDK_DISABLE=vulkan pavucontrol"
+    },
+    "network": {
+        "format-wifi": " ",
+        "format-ethernet": "Ethernet ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "(No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+	"on-click": "sh ~/scripts/wifi.sh"
+	 
+    },
+    "cpu": {
+        "format": "  {usage}%",
+        "tooltip": true
+    },
+    "memory": {
+        "format": "  {}%",
+	"tooltip": true
+    },
+    "temperature": {
+        "interval": 10,
+        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
+        "critical-threshold": 100,
+        "format-critical": " {temperatureC}",
+        "format": " {temperatureC}°C"
+    },
+    "hyprland/language": {
+       "format": "  {}",
+       "format-en": "EN",
+       "format-ru": "RU"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-full": "{icon}  {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-alt": "{time}  {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "clock": {
+        "format": "{:%H:%M | %e %B} ",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    }
+
+}
